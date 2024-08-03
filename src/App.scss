@@ -132,6 +132,9 @@ h2 {
 .padding {
   padding: 10px;
 }
+.margin-bottom {
+  margin-bottom: 4px;
+}
 .height {
   height: 100%;
 }
@@ -322,8 +325,6 @@ a:hover svg {
 
   .info-inbox {
     display: flex;
-    align-items: center;
-    width: 100%;
     height: 100%;
     border: 1px solid #d7d7d7;
     border-radius: 10px;
@@ -357,7 +358,6 @@ a:hover svg {
   }
 
   .section-title {
-    border-bottom: none;
     border-bottom: 1px solid $basic-green-color;
     text-align: center;
     font-weight: 400;

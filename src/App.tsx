@@ -14,7 +14,7 @@ function App() {
     let h = cnv.height = window.innerHeight;
 
     ctx.strokeStyle = '#000000';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 0.6;
 
     let dir_min = -Math.PI / 4 / 4;
     const dir_min_initial = -Math.PI / 4 / 4;
@@ -46,8 +46,8 @@ function App() {
       let x1 = x + Math.cos(dir) * l ;
       let y1 = y + Math.sin(dir) * l ;
       ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x1, y1);
+      ctx.moveTo(x, y+0.5);
+      ctx.lineTo(x1, y1+0.5);
       ctx.stroke();
       if(iteration >= 0) {
         tree(x1, y1, dir + dir_m, l / 1.5, iteration - 1, dir_m);
@@ -109,7 +109,7 @@ function App() {
               <div className={'info-skills-inbox flex-direction-column'}>
                 <p className={'info-paragraph font-weight700'}>⚙️ Back-end</p>
                 <div className={'skills-content'}>
-                  {`Pug, EJS, Express, AWS Service, NestJS, REST, MySQL, PostgreSQL, Redis, MongoDB, TypeORM, Prisma, Seeding, Auth: JWT; Passport; Basic etc., Telegram Bots, SSH, OpenAPI, Swagger, Bash, Docker Compose, Linux`
+                  {`Pug, EJS, Express, AWS S3 bucket, NestJS, REST, MySQL, PostgreSQL, Redis, MongoDB, TypeORM, Prisma, Seeding, Auth: JWT; Passport; Basic etc., Telegram Bots, SSH, OpenAPI, Swagger, Bash, Docker Compose, Linux`
                       .split(', ')
                       .map((skill) => (
                           <div className={'skill'} key={skill}>
@@ -150,34 +150,41 @@ function App() {
 
         <div className="section about-section">
           <h2 className="section-title">Projects</h2>
-          <div className={'info-skills'}>
-            <div className={'info-inbox padding cursor-pointer'} onClick={() => {
-              window.open('https://github.com/zahardubyna/4-backend')
-            }}>
-              <img className={'project-icon'}
-                   src="https://img.icons8.com/?size=100&id=lYpJCJN3hGwm&format=png&color=000000" alt="starwars"/>
-              <div className={'info-content padding height'}>
-                <p className={'info-paragraph font-weight700 font-size20px'}>🌟 StarWars API</p>
-                <p className={'info-text'}>Star Wars is a project that allows you to learn about any character,
-                  solar system, planet, starships, species, etc. Thanks to the Swagger API developer toolkit,
-                  you can also attach any image to an entity that stores a copy in the public folder for frontend and in
-                  an S3 bucket.
-                  Plans: to make a frontend for this API</p>
+          <div>
+            <div>
+              <div className={'info-inbox cursor-pointer margin-bottom'} onClick={() => {
+                window.open('https://github.com/zahardubyna/4-backend')
+              }}>
+                <img className={'project-icon padding'}
+                     src="https://img.icons8.com/?size=100&id=lYpJCJN3hGwm&format=png&color=000000" alt="starwars"/>
+                <div className={'info-content padding height'}>
+                  <p className={'info-paragraph font-weight700 font-size20px'}>🌟 StarWars API</p>
+                  <p className={'info-text'}>Star Wars is a project that allows you to learn about any character,
+                    solar system, planet, starships, species, etc. Thanks to the Swagger API developer toolkit,
+                    you can also attach any image to an entity that stores a copy in the public folder for frontend and
+                    in
+                    an S3 bucket.
+                    Plans: to make a frontend for this API</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className={'info-skills'}>
-            <div className={'info-inbox padding cursor-pointer'} onClick={() => {
-              window.open('https://github.com/zahardubyna/bio')
-            }}>
-              <div className={'project-icon emoji'}>🏡</div>
-              <div className={'info-content padding height'}>
-                <p className={'info-paragraph font-weight700 font-size20px'}>🌳 My Bio</p>
-                <p className={'info-text'}>Page about me,
-                  written in ReactJs, my projects, my experience</p>
+            <div>
+              <div className={'info-inbox cursor-pointer margin-bottom'} onClick={() => {
+                window.open('https://github.com/zahardubyna/bio')
+              }}>
+                <img className={'project-icon padding'}
+                     src="https://img.icons8.com/?size=100&id=VYbFkFCTRWLV&format=png&color=000000" alt="home"/>
+                {/*<div className={'project-icon emoji'}>🏡</div>*/}
+                <div className={'info-content padding height'}>
+                  <p className={'info-paragraph font-weight700 font-size20px'}>🌳 My Bio</p>
+                  <p className={'info-text'}>Page about me,
+                    my projects, my experience, written in ReactJs</p>
+                </div>
               </div>
             </div>
+
           </div>
+
         </div>
 
         <div className="section contact-section">
